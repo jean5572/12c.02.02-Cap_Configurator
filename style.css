@@ -1,11 +1,12 @@
 :root {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 #configurator {
   display: grid;
-  grid-template-areas: "product options"
-                       "features features";
+  grid-template-areas:
+    "product options"
+    "features features";
   gap: 1em;
 }
 
@@ -14,7 +15,7 @@
   box-shadow: 3px 3px 8px #ddd;
   border-radius: 1em;
   position: relative;
-  transition: opacity ease-in .5s;
+  transition: opacity ease-in 0.5s;
 }
 
 #product-preview img {
@@ -90,9 +91,31 @@
 
 .animate-feature-in {
   /* TODO: Create animation for adding a feature */
-  
+  --diffX: 0;
+  --diffY: 0;
+  animation: moveIn 1s;
+}
+
+@keyframes moveIn {
+  0% {
+    transform: translate(calc(var(--diffX) * 1px), calc(var(--diffY) * 1px));
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 .animate-feature-out {
   /* TODO: Create animation for removing a feature */
+  --diffX: 0;
+  --diffY: 0;
+  animation: moveOut 1s;
+}
+@keyframes moveOut {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(var(--diffX) * 1px), calc(var(--diffY) * 1px));
+  }
 }
